@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance - Premium Clothing</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=high-end%20fashion%20photography%20with%20elegant%20models%20wearing%20luxury%20clothing%2C%20soft%20natural%20lighting%2C%20minimalist%20background%20with%20subtle%20gradient%2C%20professional%20fashion%20photography%20with%20soft%20shadows%20and%20highlights%2C%20clean%20composition%20with%20focus%20on%20clothing%20details%2C%20high-resolution%20professional%20studio%20photography&width=1920&height=1080&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .category-card:hover .category-overlay {
+            opacity: 1;
+        }
+        .product-card:hover .quick-shop {
+            opacity: 1;
+        }
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+        .checkmark:after {
+            content: "";
+            display: none;
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                background-position: 70% center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" class="font-['Pacifico'] text-2xl md:text-3xl text-primary">logo</a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="#collection" class="text-gray-700 hover:text-primary font-medium transition-colors">Collection</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Cart and Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative w-10 h-10 flex items-center justify-center">
+                        <i class="ri-shopping-bag-line text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center md:hidden">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Home</a>
+                    <a href="#collection" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Collection</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-16 md:pt-20">
+        <div class="w-full min-h-[600px] md:min-h-[700px] flex items-center relative">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="container mx-auto px-4 z-10">
+                <div class="max-w-xl">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">Redefine Your Style</h1>
+                    <p class="text-lg md:text-xl text-white opacity-90 mb-8">Discover our premium collection of timeless fashion pieces designed for the modern individual.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#collection" class="bg-primary text-white px-8 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Shop Collection</a>
+                        <a href="#about" class="bg-white text-gray-800 px-8 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collections</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our carefully curated collections designed to elevate your wardrobe with timeless elegance and contemporary style.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Category 1 -->
+                <div class="category-card relative rounded overflow-hidden shadow-md group">
+                    <img src="https://readdy.ai/api/search-image?query=elegant%20womens%20dresses%20on%20display%20in%20a%20high-end%20boutique%2C%20soft%20lighting%20highlighting%20fabric%20details%2C%20minimalist%20background%20with%20subtle%20textures%2C%20professional%20fashion%20photography%20with%20clean%20composition%2C%20focus%20on%20clothing%20silhouettes%20and%20textures&width=600&height=800&seq=2&orientation=portrait" alt="Women's Collection" class="w-full h-80 object-cover object-top">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-semibold mb-2">Women's</h3>
+                            <a href="#" class="inline-block bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <h3 class="font-medium">Women's</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="category-card relative rounded overflow-hidden shadow-md group">
+                    <img src="https://readdy.ai/api/search-image?query=mens%20formal%20wear%20and%20casual%20clothing%20displayed%20in%20a%20luxury%20store%2C%20clean%20modern%20display%20with%20focus%20on%20suits%20and%20shirts%2C%20professional%20fashion%20photography%20with%20attention%20to%20tailoring%20details%2C%20minimalist%20background%20highlighting%20the%20clothing&width=600&height=800&seq=3&orientation=portrait" alt="Men's Collection" class="w-full h-80 object-cover object-top">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-semibold mb-2">Men's</h3>
+                            <a href="#" class="inline-block bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <h3 class="font-medium">Men's</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="category-card relative rounded overflow-hidden shadow-md group">
+                    <img src="https://readdy.ai/api/search-image?query=premium%20accessories%20collection%20including%20luxury%20watches%2C%20bags%2C%20and%20jewelry%20displayed%20elegantly%2C%20professional%20product%20photography%20with%20attention%20to%20detail%2C%20clean%20minimalist%20background%20highlighting%20the%20accessories%2C%20soft%20lighting%20accentuating%20textures%20and%20materials&width=600&height=800&seq=4&orientation=portrait" alt="Accessories" class="w-full h-80 object-cover object-top">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-semibold mb-2">Accessories</h3>
+                            <a href="#" class="inline-block bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <h3 class="font-medium">Accessories</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="category-card relative rounded overflow-hidden shadow-md group">
+                    <img src="https://readdy.ai/api/search-image?query=seasonal%20fashion%20collection%20displayed%20in%20a%20high-end%20retail%20environment%2C%20focus%20on%20trending%20outfits%20and%20seasonal%20colors%2C%20professional%20fashion%20photography%20with%20attention%20to%20styling%20details%2C%20clean%20modern%20display%20highlighting%20the%20latest%20fashion%20trends&width=600&height=800&seq=5&orientation=portrait" alt="New Arrivals" class="w-full h-80 object-cover object-top">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-semibold mb-2">New Arrivals</h3>
+                            <a href="#" class="inline-block bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <h3 class="font-medium">New Arrivals</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="w-full md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=fashion%20atelier%20with%20designers%20working%20on%20clothing%2C%20elegant%20workspace%20with%20fabric%20samples%20and%20design%20sketches%2C%20natural%20lighting%20highlighting%20creative%20process%2C%20professional%20photography%20of%20fashion%20design%20studio%20with%20attention%20to%20craftsmanship%20details%2C%20clean%20modern%20space%20showing%20the%20artistry%20behind%20fashion%20creation&width=800&height=600&seq=6&orientation=landscape" alt="About Our Brand" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
+                    <p class="text-gray-700 mb-4">Founded in 2010, our brand was born from a passion for creating timeless clothing that combines exceptional quality with contemporary design. We believe that great style should be accessible and sustainable.</p>
+                    <p class="text-gray-700 mb-6">Our team of dedicated designers works tirelessly to craft pieces that not only look beautiful but are made to last. We source the finest materials from ethical suppliers around the world, ensuring that every garment meets our exacting standards.</p>
+                    <h3 class="text-xl font-semibold mb-4">Our Values</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                <i class="ri-recycle-line text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Sustainability</h4>
+                                <p class="text-sm text-gray-600">Eco-friendly practices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                <i class="ri-heart-line text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Ethical Production</h4>
+                                <p class="text-sm text-gray-600">Fair labor practices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                <i class="ri-award-line text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Quality</h4>
+                                <p class="text-sm text-gray-600">Premium materials</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                <i class="ri-global-line text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Community</h4>
+                                <p class="text-sm text-gray-600">Supporting artisans</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Products</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our most popular items, handpicked for their exceptional quality and timeless appeal.</p>
+            </div>
+            
+            <!-- Desktop Carousel -->
+            <div class="hidden md:block relative">
+                <div class="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide">
+                    <!-- Product 1 -->
+                    <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=elegant%20womens%20blazer%20in%20neutral%20color%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20texture%20and%20tailoring%20details%2C%20clean%20composition%20highlighting%20the%20garments%20structure%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=7&orientation=portrait" alt="Tailored Blazer" class="w-full h-72 object-cover object-top">
+                            <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                <button class="bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Quick Shop</button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800">Tailored Blazer</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-900 font-semibold">$189.00</span>
+                                <div class="flex items-center">
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-half-fill text-yellow-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=mens%20casual%20shirt%20in%20light%20blue%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20texture%20and%20fit%20details%2C%20clean%20composition%20highlighting%20the%20garments%20structure%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=8&orientation=portrait" alt="Oxford Shirt" class="w-full h-72 object-cover object-top">
+                            <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                <button class="bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Quick Shop</button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800">Oxford Shirt</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-900 font-semibold">$79.00</span>
+                                <div class="flex items-center">
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=elegant%20womens%20dress%20in%20dark%20color%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20drape%20and%20silhouette%2C%20clean%20composition%20highlighting%20the%20garments%20design%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=9&orientation=portrait" alt="Wrap Dress" class="w-full h-72 object-cover object-top">
+                            <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                <button class="bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Quick Shop</button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800">Wrap Dress</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-900 font-semibold">$149.00</span>
+                                <div class="flex items-center">
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-line text-yellow-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=premium%20leather%20handbag%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20leather%20texture%20and%20hardware%20details%2C%20clean%20composition%20highlighting%20the%20bags%20structure%2C%20high-quality%20fashion%20accessory%20image%20with%20soft%20shadows&width=500&height=600&seq=10&orientation=portrait" alt="Leather Tote" class="w-full h-72 object-cover object-top">
+                            <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                <button class="bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Quick Shop</button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800">Leather Tote</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-900 font-semibold">$249.00</span>
+                                <div class="flex items-center">
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-half-fill text-yellow-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=mens%20slim%20fit%20trousers%20in%20dark%20color%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20texture%20and%20tailoring%20details%2C%20clean%20composition%20highlighting%20the%20garments%20structure%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=11&orientation=portrait" alt="Slim Trousers" class="w-full h-72 object-cover object-top">
+                            <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                <button class="bg-white text-gray-800 px-4 py-2 !rounded-button whitespace-nowrap text-sm font-medium">Quick Shop</button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800">Slim Trousers</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-900 font-semibold">$119.00</span>
+                                <div class="flex items-center">
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    <i class="ri-star-line text-yellow-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Grid -->
+            <div class="grid grid-cols-2 gap-4 md:hidden">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=elegant%20womens%20blazer%20in%20neutral%20color%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20texture%20and%20tailoring%20details%2C%20clean%20composition%20highlighting%20the%20garments%20structure%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=7&orientation=portrait" alt="Tailored Blazer" class="w-full h-48 object-cover object-top">
+                        <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="bg-white text-gray-800 px-3 py-1 !rounded-button whitespace-nowrap text-xs font-medium">Quick Shop</button>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 text-sm">Tailored Blazer</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-gray-900 font-semibold text-sm">$189.00</span>
+                            <div class="flex items-center">
+                                <i class="ri-star-fill text-yellow-400 text-xs"></i>
+                                <span class="text-xs text-gray-600 ml-1">4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=mens%20casual%20shirt%20in%20light%20blue%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20texture%20and%20fit%20details%2C%20clean%20composition%20highlighting%20the%20garments%20structure%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=8&orientation=portrait" alt="Oxford Shirt" class="w-full h-48 object-cover object-top">
+                        <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="bg-white text-gray-800 px-3 py-1 !rounded-button whitespace-nowrap text-xs font-medium">Quick Shop</button>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 text-sm">Oxford Shirt</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-gray-900 font-semibold text-sm">$79.00</span>
+                            <div class="flex items-center">
+                                <i class="ri-star-fill text-yellow-400 text-xs"></i>
+                                <span class="text-xs text-gray-600 ml-1">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=elegant%20womens%20dress%20in%20dark%20color%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20fabric%20drape%20and%20silhouette%2C%20clean%20composition%20highlighting%20the%20garments%20design%2C%20high-quality%20fashion%20product%20image%20with%20soft%20shadows&width=500&height=600&seq=9&orientation=portrait" alt="Wrap Dress" class="w-full h-48 object-cover object-top">
+                        <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="bg-white text-gray-800 px-3 py-1 !rounded-button whitespace-nowrap text-xs font-medium">Quick Shop</button>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 text-sm">Wrap Dress</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-gray-900 font-semibold text-sm">$149.00</span>
+                            <div class="flex items-center">
+                                <i class="ri-star-fill text-yellow-400 text-xs"></i>
+                                <span class="text-xs text-gray-600 ml-1">4.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20leather%20handbag%20on%20plain%20background%2C%20professional%20product%20photography%20with%20attention%20to%20leather%20texture%20and%20hardware%20details%2C%20clean%20composition%20highlighting%20the%20bags%20structure%2C%20high-quality%20fashion%20accessory%20image%20with%20soft%20shadows&width=500&height=600&seq=10&orientation=portrait" alt="Leather Tote" class="w-full h-48 object-cover object-top">
+                        <div class="quick-shop absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="bg-white text-gray-800 px-3 py-1 !rounded-button whitespace-nowrap text-xs font-medium">Quick Shop</button>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-medium text-gray-800 text-sm">Leather Tote</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-gray-900 font-semibold text-sm">$249.00</span>
+                            <div class="flex items-center">
+                                <i class="ri-star-fill text-yellow-400 text-xs"></i>
+                                <span class="text-xs text-gray-600 ml-1">4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-primary text-white px-8 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about our products or services? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Contact Form -->
+                    <div class="w-full md:w-2/3 bg-white p-6 md:p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your email">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Message subject">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your message"></textarea>
+                            </div>
+                            <div class="mb-6">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox">
+                                    <span class="checkmark mr-2"></span>
+                                    <span class="text-sm text-gray-700">I agree to receive marketing communications</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="bg-primary text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all w-full md:w-auto">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="w-full md:w-1/3">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md mb-6">
+                            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                        <i class="ri-map-pin-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Address</h4>
+                                        <p class="text-sm text-gray-600">123 Fashion Street, New York, NY 10001</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                        <i class="ri-phone-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Phone</h4>
+                                        <p class="text-sm text-gray-600">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                        <i class="ri-mail-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Email</h4>
+                                        <p class="text-sm text-gray-600">info@eleganceclothing.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
+                                        <i class="ri-time-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Hours</h4>
+                                        <p class="text-sm text-gray-600">Mon-Sat: 10AM - 8PM<br>Sunday: 11AM - 6PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Newsletter -->
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                            <p class="text-sm text-gray-600 mb-4">Stay updated with our latest collections and exclusive offers.</p>
+                            <form class="flex flex-col space-y-3">
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your email address">
+                                <button type="submit" class="bg-primary text-white px-4 py-2 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <a href="#" class="font-['Pacifico'] text-2xl text-white mb-4 inline-block">logo</a>
+                    <p class="text-gray-400 mb-4">Premium clothing for the modern individual. Quality, style, and sustainability in every piece.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-pinterest-line text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Shop Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Women's</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Men's</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Elegance Clothing. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-visa-fill text-xl text-gray-300"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-mastercard-fill text-xl text-gray-300"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-paypal-fill text-xl text-gray-300"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-apple-fill text-xl text-gray-300"></i>
+                        </div>
+                        <div class="w-8 h-5 flex items-center justify-center">
+                            <i class="ri-google-fill text-xl text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="mobileMenuScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            let isMenuOpen = false;
+            
+            mobileMenuButton.addEventListener('click', function() {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+                    mobileMenu.classList.add('translate-y-0', 'opacity-100');
+                    mobileMenuButton.innerHTML = '<i class="ri-close-line text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+                    mobileMenuButton.innerHTML = '<i class="ri-menu-line text-2xl"></i>';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+                    mobileMenuButton.innerHTML = '<i class="ri-menu-line text-2xl"></i>';
+                    isMenuOpen = false;
+                });
+            });
+        });
+    </script>
+    
+    <script id="smoothScrollScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80; // Adjust based on your header height
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <script id="checkboxScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Custom checkbox functionality
+            const checkboxes = document.querySelectorAll('.custom-checkbox input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkmark = this.nextElementSibling;
+                    if (this.checked) {
+                        checkmark.style.backgroundColor = '#3b82f6';
+                        checkmark.style.borderColor = '#3b82f6';
+                    } else {
+                        checkmark.style.backgroundColor = '#fff';
+                        checkmark.style.borderColor = '#ddd';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
